@@ -50,13 +50,13 @@ class EarlyStoppingByLossVal(Callback):
                 print(" Epoch %05d: early stopping THR" % epoch)
             self.model.stop_training = True
 
-def and_fun(t,N_rec,base,base_plot, offset):
+def and_fun(t,N_rec,base,base_plot, offset, epoc):
   
     lista_distancia=[]
     #Parameters
 
     sample_size      = 15050 #training samples
-    epochs           = 20 #training instances
+    epochs           = epoc #training instances
     mem_gap          = t
 
     # Initializers
@@ -126,7 +126,7 @@ def and_fun(t,N_rec,base,base_plot, offset):
     fig     = plt.figure(figsize=(8,6))
     plt.grid(True)
     plt.plot(history.history['loss'])
-    plt.title('Loss con mem_gap: ', mem_gap, ' y N_rec: ', N_rec)
+    plt.title(f'Loss con mem_gap: {mem_gap} y N_rec: {N_rec}')
     plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.legend(['train', 'validation'], loc='upper left')
