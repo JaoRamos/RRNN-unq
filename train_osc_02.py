@@ -126,7 +126,7 @@ def and_fun(t,N_rec,base,base_plot, offset):
     fig     = plt.figure(figsize=(8,6))
     plt.grid(True)
     plt.plot(history.history['loss'])
-    plt.title('Model loss during training')
+    plt.title('Loss con mem_gap: ', mem_gap, ' y N_rec: ', N_rec)
     plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.legend(['train', 'validation'], loc='upper left')
